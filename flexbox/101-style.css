@@ -1,41 +1,46 @@
+/* 101-style.css */
 .container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  height: 100%;
-  align-items: center;
+  align-items: baseline;
 }
 
 .box {
-  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
 }
 
+/* Flexbox properties */
 .box1 {
-  background: lime;
-  flex-basis: 5%;
+  background: #2ecc71;
   font-size: 2rem;
+  height: 100px;
+  width: 150px;
 }
-
 .box2 {
-  background: lightskyblue;
-  flex-basis: 15%;
-  font-size: 7rem;
+  background: #3498db;
+  font-size: 4rem;
+  height: 150px;
+  width: 220px;
 }
-
 .box3 {
-  background: darkblue;
-  flex-basis: 30%;
-  font-size: 12rem;
+  background: #2c3e50;
+  height: 250px;
+  width: 420px;
+  font-size: 10rem;
 }
-
 .box4 {
-  background: darkmagenta;
-  flex-basis: 15%;
-  font-size: 7rem;
+  background: #9b59b6;
+  font-size: 4rem;
+  height: 150px;
+  width: 220px;
 }
-
 .box5 {
-  background: darkorange;
-  flex-basis: 5%;
+  background: #e67e22;
   font-size: 2rem;
+  height: 100px;
+  width: 150px;
 }
