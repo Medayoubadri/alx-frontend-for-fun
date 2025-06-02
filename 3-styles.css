@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.8rem;
+  background-color: #f5f5f5;
+}
+
+.menu {
+  position: relative;
+}
+
+/* Hide the checkbox */
+.menu-open {
+  display: none;
+}
+
+/* Menu open button (hamburger) */
+.menu-open-button {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-color: #c1272d;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.15s ease;
+  z-index: 10;
+}
+
+/* Menu lines for hamburger icon */
+.menu-line {
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  margin: 2px 0;
+  transition: all 0.15s ease;
+}
+
+/* Transform hamburger to X when menu is open */
+.menu-open:checked + .menu-open-button .menu-line-1 {
+  margin-top: 8px;
+  transform: rotate(45deg) translate(2px, 2px);
+}
+
+.menu-open:checked + .menu-open-button .menu-line-2 {
+  opacity: 0;
+}
+
+.menu-open:checked + .menu-open-button .menu-line-3 {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Menu items */
+.menu-item {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #c1272d;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  transition: all 0.15s ease;
+  opacity: 0;
+  transform: scale(0);
+  top: 0;
+  left: 0;
+}
+
+/* Show and position menu items when menu is open (positioned below the button) */
+.menu-open:checked ~ .menu-item {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.menu-open:checked ~ .menu-item:nth-child(3) {
+  top: 80px;
+}
+
+.menu-open:checked ~ .menu-item:nth-child(4) {
+  top: 160px;
+}
+
+.menu-open:checked ~ .menu-item:nth-child(5) {
+  top: 240px;
+}
+
+.menu-open:checked ~ .menu-item:nth-child(6) {
+  top: 320px;
+}
+
+.menu-open:checked ~ .menu-item:nth-child(7) {
+  top: 400px;
+}
+
+/* Hover effects */
+.menu-item:hover,
+.menu-open-button:hover {
+  background-color: #a91e23;
+  transform: scale(1.05);
+}
+
+.menu-open:checked ~ .menu-item:hover {
+  background-color: white;
+  color: #c1272d;
+  border: 2px solid #c1272d;
+}
