@@ -1,0 +1,13 @@
+/* Mixin for horizontal margins */
+@mixin horizontal-margins($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+body {
+  @include horizontal-margins(10px);
+}
+
+div {
+  @include horizontal-margins(15px);
+}
