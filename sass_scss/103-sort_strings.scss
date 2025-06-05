@@ -1,0 +1,77 @@
+/* Sort list using custom function */
+@import '103-sort_list';
+
+// Function to sort a list (bubble sort implementation)
+@function sort-list($list) {
+  $length: length($list);
+  
+  @if $length <= 1 {
+    @return $list;
+  }
+  
+  $sorted: $list;
+  
+  @for $i from 1 through $length - 1 {
+    @for $j from 1 through $length - $i {
+      $current: nth($sorted, $j);
+      $next: nth($sorted, $j + 1);
+      
+      @if str-compare($current, $next) > 0 {
+        $sorted: set-nth($sorted, $j, $next);
+        $sorted: set-nth($sorted, $j + 1, $current);
+      }
+    }
+  }
+  
+  @return $sorted;
+}
+
+// Function to compare strings alphabetically
+@function str-compare($str1, $str2) {
+  $chars1: str-to-chars($str1);
+  $chars2: str-to-chars($str2);
+  $min-length: min(length($chars1), length($chars2));
+  
+  @for $i from 1 through $min-length {
+    $char1: nth($chars1, $i);
+    $char2: nth($chars2, $i);
+    $code1: char-to-code($char1);
+    $code2: char-to-code($char2);
+    
+    @if $code1 > $code2 {
+      @return 1;
+    } @else if $code1 < $code2 {
+      @return -1;
+    }
+  }
+  
+  @if length($chars1) > length($chars2) {
+    @return 1;
+  } @else if length($chars1) < length($chars2) {
+    @return -1;
+  }
+  
+  @return 0;
+}
+
+// Function to convert string to list of characters
+@function str-to-chars($string) {
+  $chars: ();
+  @for $i from 1 through str-length($string) {
+    $chars: append($chars, str-slice($string, $i, $i));
+  }
+  @return $chars;
+}
+
+// Function to convert character to ASCII code (simplified)
+@function char-to-code($char) {
+  $chars: 'abcdefghijklmnopqrstuvwxyz';
+  $index: str-index($chars, to-lower-case($char));
+  @if $index {
+    @return $index;
+  }
+  @return 999; // Return large number for unknown chars
+}
+
+$sorted-list: sort-list($list_to_sort);
+@debug $sorted-list;
